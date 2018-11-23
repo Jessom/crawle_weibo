@@ -14,9 +14,9 @@
 - 使用最多的名字 `name.txt`
 - 使用最多的词语 `word.txt`
 
-<p style='text-align:center;'><img src='http://qicloud.jswei.cn/images/git/crawle_weibo/nm.jpg' /></p>
-<p style='text-align:center;'><img src='http://qicloud.jswei.cn/images/git/crawle_weibo/pkq.jpg' /></p>
-<p style='text-align:center;'><img src='http://qicloud.jswei.cn/images/git/crawle_weibo/qb.jpg' /></p>
+<p align="center"><img src='http://qicloud.jswei.cn/images/git/crawle_weibo/nm.jpg' /></p>
+<p align="center"><img src='http://qicloud.jswei.cn/images/git/crawle_weibo/pkq.jpg' /></p>
+<p align="center"><img src='http://qicloud.jswei.cn/images/git/crawle_weibo/qb.jpg' /></p>
 
 ## 环境
 windows10 + python3.6.3
