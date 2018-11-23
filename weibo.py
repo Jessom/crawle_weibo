@@ -8,9 +8,9 @@ import shutil
 import time
 from lxml import etree
 
-user_id = 5337887050
+user_id = "user_id"
 cookie = {
-	"Cookie": "_T_WM=d1eda13cf3bd542c53f4a1c90a35b7ed; ALF=1545441553; SCF=Aoguqxq8zVRFzCdqHoNd1Re2px5Q3vbNZNG1euDkuCpSKJARsaz5BHpNONW9cZGc0g4Qoapa8RDSEoAfBr1Sl-M.; SUB=_2A2528nRvDeRhGeNN6FUZ-CnMzjyIHXVSHRwnrDV6PUJbktAKLVDfkW1NSbRi0jAfqwlea5lyqEvv25VMZAuVGMQY; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9WW7gDDG6IBdJJuSk_Mrf-AV5JpX5K-hUgL.Fo-0e0MR1hM7SK52dJLoI7yNqPxyMcLkd5tt; SUHB=0WGMiy_x-T3Icp; SSOLoginState=1542849599"
+	"Cookie": "cookie"
 }
 
 # 文本内容
