@@ -7,11 +7,10 @@ import requests
 import shutil
 import time
 from lxml import etree
+import config as conf
 
-user_id = "user_id"
-cookie = {
-	"Cookie": "cookie"
-}
+user_id = conf.config["userId"]
+cookie = conf.config["cookie"]
 
 # 文本内容
 result = ""
@@ -21,10 +20,10 @@ urllist_set = set()
 sleep_time = 40
 
 try:
-	data_path = os.getcwd() + "\\result\\%d\\"%user_id
+	data_path = os.getcwd() + "/result/%d/"%user_id
 	if not os.path.exists(data_path):
 		os.makedirs(data_path)
-		os.makedirs(data_path+"\\imgs\\")
+		os.makedirs(data_path+"/imgs/")
 		print("目录创建成功")
 except Exception as e:
 	print("目录创建失败，原因：", e)
@@ -95,7 +94,7 @@ def download_img():
 	# 下载图片
 	x = 1
 	for imgurl in urllist_set:
-		temp = data_path+"\\imgs\\%s.jpg"%x
+		temp = data_path+"/imgs/%s.jpg"%x
 		print("正在下载第 %s 张图片"%x)
 		try:
 			r = requests.get(imgurl, stream=True)

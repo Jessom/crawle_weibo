@@ -1,11 +1,25 @@
 # crawle_weibo
 微博爬虫，爬取微博个人账号的原创微博内容
 
+## 环境
+windows10 + python3.6.3
+
 ## 使用
-- 修改`weibo.py`里的`user_id`、`cookie`
-- 执行`python weibo.py`爬取`原创微博`
-- 执行`python analysis.py`解析微博内容
-- 执行`python main.py`生成词云图
+在项目根目录添加`config.py`文件
+``` python
+# -*- coding: utf-8 -*-
+config = {
+	"userId": "userId",
+	"cookie": {
+		"Cookie": "cookie"
+	},
+	"background": "resource/background/qb.png"
+}
+
+```
+- 执行`weibo.py`爬取`原创微博`
+- 执行`analysis.py`解析微博内容，并生成图表
+- 执行`main.py`生成词云图
 
 爬取完成后，会在项目根目录生成`result`文件夹，以及对于的`user_id`文件夹 <br />
 解析完成后，会在对于的`user_id`文件夹下生成：
@@ -13,13 +27,12 @@
 - 使用最多的表情 `express.txt`
 - 使用最多的名字 `name.txt`
 - 使用最多的词语 `word.txt`
+- 分类图表 `category.html`
+- 表情图表 `express.html`
 
 <p align="center"><img src='http://qicloud.jswei.cn/images/git/crawle_weibo/nm.jpg' /></p>
 <p align="center"><img src='http://qicloud.jswei.cn/images/git/crawle_weibo/pkq.jpg' /></p>
 <p align="center"><img src='http://qicloud.jswei.cn/images/git/crawle_weibo/qb.jpg' /></p>
-
-## 环境
-windows10 + python3.6.3
 
 ## wordcloud的安装
 - 到[http://www.lfd.uci.edu/~gohlke/pythonlibs/#wordcloud](http://www.lfd.uci.edu/~gohlke/pythonlibs/#wordcloud)下载wordcloud模块所需要的whl文件，根据自己版本下载
@@ -36,5 +49,6 @@ wordcloud = WordCloud(font_path="simhei.ttf").generate(text)
 ## 参考地址
 - [https://github.com/dingmyu/weibo_analysis.git](https://github.com/dingmyu/weibo_analysis.git)
 - [https://www.crummy.com/software/BeautifulSoup/bs4/doc.zh/](https://www.crummy.com/software/BeautifulSoup/bs4/doc.zh/)
-- [https://www.cnblogs.com/tina-python/p/5508402.html](https://www.cnblogs.com/tina-python/p/5508402.html)
+<<<<<<< Updated upstream
+- [https://www.cnblogs.com/tina-python/p/5508402.html](https://www.cnblogs.com/tina-python/p/5508402.html) <br />
 还有很多，这里就不一一列举出来了
