@@ -71,7 +71,7 @@ f3.write(bytes(words, encoding = "utf8"))
 # 生成 单词 图表
 # wordChart = Pie("单词", title_pos='center')
 # wordChart.add("", wordAttr, wordVal, is_label_show=True, type='scroll', legend_orient="vertical", legend_pos="left")
-# wordChart.render('result/5337887050/word.html')
+# wordChart.render('result/%d/word.html'%user_id)
 
 records = ""
 recAttr = []
@@ -84,7 +84,7 @@ f1.write(bytes(records, encoding = "utf8"))
 # 生成 类型 图表
 recChart = Pie("类型", title_pos='center')
 recChart.add("", recAttr, recVal, is_label_show=True, legend_orient="vertical", legend_pos="left")
-recChart.render('result/5337887050/category.html')
+recChart.render('result/%d/category.html'%user_id)
 
 expressed = ""
 expAttr = []
@@ -97,7 +97,7 @@ f2.write(bytes(expressed, encoding = "utf8"))
 # 生成 表情 图表
 expChart = Pie("表情", title_pos='center')
 expChart.add("", expAttr, expVal, is_label_show=True, legend_orient="vertical", legend_pos="left")
-expChart.render('result/5337887050/express.html')
+expChart.render('result/%d/express.html'%user_id)
 
 names = ""
 nameAttr = []
@@ -110,4 +110,4 @@ f4.write(bytes(names, encoding = "utf8"))
 # 生成 姓名 图表
 # nameChart = Pie("姓名", title_pos='center')
 # nameChart.add("", nameAttr, nameVal, is_label_show=True, legend_orient="vertical", legend_pos="left")
-# nameChart.render('result/5337887050/name.html')
+# nameChart.render('result/%d/name.html'%user_id)
