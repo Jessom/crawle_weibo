@@ -11,6 +11,7 @@ import config as conf
 
 user_id = conf.config["userId"]
 cookie = conf.config["cookie"]
+base_url = "https://weibo.cn/%d/profile?filter=1&page=%d"
 
 # 文本内容
 result = ""
@@ -30,7 +31,8 @@ except Exception as e:
 
 # 获取总页码
 def get_pages():
-	url = "https://weibo.cn/%d/profile?filter=1&page=%d"%(user_id, 1)
+	print("准备爬取 %d 用户"%user_id)
+	url = base_url%(user_id, 1)
 	html = requests.get(url, cookies = cookie).content
 	body = etree.HTML(html)
 	return (int)(body.xpath('//input[@name="mp"]')[0].attrib['value'])
@@ -42,7 +44,7 @@ def get_page(page=1):
 	# local variable 'result' referenced before assignment
 	global result
 	try:
-		url = "https://weibo.cn/%d/profile?filter=1&page=%d"%(user_id, page)
+		url = base_url%(user_id, page)
 		lxml = requests.get(url, cookies = cookie).content
 		# 解析爬取到的html内
 		body = etree.HTML(lxml)

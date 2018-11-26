@@ -1,5 +1,6 @@
 # crawle_weibo
-微博爬虫，爬取微博个人账号的原创微博内容
+微博爬虫，爬取微博个人账号的原创微博内容 <br />
+纯属娱乐项目
 
 ## 环境
 windows10 + python3.6.3
@@ -9,20 +10,19 @@ windows10 + python3.6.3
 ``` python
 # -*- coding: utf-8 -*-
 config = {
-	"userId": "userId",
+	"userId": "userId",			# 需要爬取的用户微博ID
 	"cookie": {
-		"Cookie": "cookie"
+		"Cookie": "cookie"		# cookie
 	},
-	"background": "resource/background/qb.png"
+	"background": "resource/background/qb.png"	# 生成词云的图片，resource下有几张可选图片
 }
-
 ```
-- 执行`weibo.py`爬取`原创微博`
+- 执行`weibo.py`爬取`原创微博`，并下载图片
 - 执行`analysis.py`解析微博内容，并生成图表
 - 执行`main.py`生成词云图
 
 爬取完成后，会在项目根目录生成`result`文件夹，以及对于的`user_id`文件夹 <br />
-解析完成后，会在对于的`user_id`文件夹下生成：
+解析完成后，会在对应的`user_id`文件夹下生成：
 - 分类 `category.txt`
 - 使用最多的表情 `express.txt`
 - 使用最多的名字 `name.txt`
@@ -49,6 +49,5 @@ wordcloud = WordCloud(font_path="simhei.ttf").generate(text)
 ## 参考地址
 - [https://github.com/dingmyu/weibo_analysis.git](https://github.com/dingmyu/weibo_analysis.git)
 - [https://www.crummy.com/software/BeautifulSoup/bs4/doc.zh/](https://www.crummy.com/software/BeautifulSoup/bs4/doc.zh/)
-<<<<<<< Updated upstream
 - [https://www.cnblogs.com/tina-python/p/5508402.html](https://www.cnblogs.com/tina-python/p/5508402.html) <br />
 还有很多，这里就不一一列举出来了
