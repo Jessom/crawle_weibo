@@ -62,9 +62,10 @@ def get_page(page=1):
 				if addrs.string.find("·") > -1:
 					address = address + addrs.string + "\n"
 					text = re.sub(r"%s"%addrs.string, "", each.xpath("string(.)"), 0)
+					result = result + text + "\n"
 			else:
 				text = each.xpath("string(.)")
-			result = result + text + "\n"
+				result = result + text + "\n"
 		print("第 %d 页读取成功"%page)
 		analysis_img(lxml)
 		print("图片读取完成，休息 %d 秒"%sleep_time)
