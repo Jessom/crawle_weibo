@@ -7,7 +7,7 @@ import sys
 import time
 import jieba.posseg as pseg
 import keywords_new
-from pyecharts import Pie, Grid
+from pyecharts import Pie, Bar, Geo
 import config as conf
 
 user_id = conf.config["userId"]
@@ -21,6 +21,7 @@ list1 = []
 record = {}
 express = {}
 name_set = {}
+city = {}
 
 while True:
   line = f.readline().strip().decode('utf-8')
@@ -57,6 +58,23 @@ while True:
         name_set[word] = name_set.get(word, 0) + 1
   else:
     break
+
+# 解析地址
+f5 = open("result/%d/%d_address"%(user_id, user_id), "rb")
+while True:
+    line = f5.readline().strip().decode('utf-8')
+    item = line.replace(" ", "")
+    if line:
+        ii = item[0:item.find("·")]
+        city[ii] = city.get(ii, 0) + 1
+    else:
+        break
+
+data = []
+
+for item in city:
+    i = (item, city[item])
+    data.append(i)
 
 count = Counter(list1)
 words = ""
@@ -95,8 +113,8 @@ for key, keywords in sorted(express.items(), key=lambda d:d[1], reverse = True):
   expVal.append(express[key])
 f2.write(bytes(expressed, encoding = "utf8"))
 # 生成 表情 图表
-expChart = Pie("表情", title_pos='center')
-expChart.add("", expAttr, expVal, is_label_show=True, legend_orient="vertical", legend_pos="left")
+expChart = Bar("表情", width=1200, title_pos='center')
+expChart.add("", expAttr, expVal, is_stack=True, is_label_show=True, is_datazoom_show=True)
 expChart.render('result/%d/express.html'%user_id)
 
 names = ""
@@ -111,3 +129,13 @@ f4.write(bytes(names, encoding = "utf8"))
 # nameChart = Pie("姓名", title_pos='center')
 # nameChart.add("", nameAttr, nameVal, is_label_show=True, legend_orient="vertical", legend_pos="left")
 # nameChart.render('result/%d/name.html'%user_id)
+
+# 生成地图图表
+geo = Geo("您经常去的地方", "", title_color="#fff",
+          title_pos="center", width=1000,
+          height=600, background_color='#404a59')
+attr, value = geo.cast(data)
+geo.add("", attr, value, visual_range=[0, 200], maptype='china',visual_text_color="#fff",
+        symbol_size=10, is_visualmap=True)
+geo.render("result/%d/address.html.html"%user_id)
+

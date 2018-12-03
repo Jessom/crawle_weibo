@@ -16,6 +16,10 @@ background = conf.config["background"]
 comment_text = open(path.join(d, "result/%d/%d")%(user_id, user_id), "rb").read().decode('utf-8')
 text = " ".join(jieba.cut(comment_text))
 
+# address_text = open(path.join(d, "result/%d/%d_address")%(user_id, user_id), "rb").read().decode('utf-8')
+# address = " ".join(jieba.cut(address_text))
+
+
 # 读取蒙版
 color_mask = np.array(Image.open(path.join(d, background)))
 stopwords = set(STOPWORDS)

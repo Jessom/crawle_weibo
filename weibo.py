@@ -15,6 +15,8 @@ base_url = "https://weibo.cn/%d/profile?filter=1&page=%d"
 
 # 文本内容
 result = ""
+# 地址
+address = ""
 # 图片地址
 urllist_set = set()
 # 爬取完当前页，休眠时间
@@ -43,6 +45,7 @@ def get_page(page=1):
 	# 这里如果不使用 global 重新声明 result ，会报如下错误
 	# local variable 'result' referenced before assignment
 	global result
+	global address
 	try:
 		url = base_url%(user_id, page)
 		lxml = requests.get(url, cookies = cookie).content
@@ -50,8 +53,17 @@ def get_page(page=1):
 		body = etree.HTML(lxml)
 		content = body.xpath("//span[@class='ctt']")
 		for each in content:
-			# 转字符串
-			text = each.xpath("string(.)")
+			# 解析地址
+			strs = etree.tostring(each)
+			soup = BeautifulSoup(strs, "lxml")
+			addrs = soup.find('a', href=re.compile(r"^https://weibo.cn/sinaurl", re.I))
+			text = ""
+			if addrs:
+				if addrs.string.find("·") > -1:
+					address = address + addrs.string + "\n"
+					text = re.sub(r"%s"%addrs.string, "", each.xpath("string(.)"), 0)
+			else:
+				text = each.xpath("string(.)")
 			result = result + text + "\n"
 		print("第 %d 页读取成功"%page)
 		analysis_img(lxml)
@@ -77,10 +89,12 @@ def analysis_img(lxml):
 			urllist_set.add(requests.get(imgurl["href"], cookies = cookie).url)
 
 # 保存爬取到的内容
-def save_result(data):
+def save_result():
 	try:
 		fi = open(data_path+"%d"%user_id, "wb")
-		fi.write(bytes(data, encoding = "utf8"))
+		fi.write(bytes(result, encoding = "utf8"))
+		f2 = open(data_path+"%d_address"%user_id, "wb")
+		f2.write(bytes(address, encoding = "utf8"))
 		print("数据写入成功，路径是：", data_path)
 	except Exception as e:
 		print("存储数据失败，原因：", e)
@@ -113,5 +127,5 @@ if __name__ == '__main__':
 	print("数据读取成功，共计 %d 页"%pages)
 	for page in range(1, pages+1):
 		get_page(page)
-	save_result(result)
+	save_result()
 	download_img()
