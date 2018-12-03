@@ -29,6 +29,7 @@ config = {
 - 使用最多的词语 `word.txt`
 - 分类图表 `category.html`
 - 表情图表 `express.html`
+- 常去地点 `address.html`
 
 <p align="center"><img src='http://qicloud.jswei.cn/images/git/crawle_weibo/nm.jpg' /></p>
 <p align="center"><img src='http://qicloud.jswei.cn/images/git/crawle_weibo/pkq.jpg' /></p>
