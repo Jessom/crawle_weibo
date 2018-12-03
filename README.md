@@ -31,9 +31,9 @@ config = {
 - 表情图表 `express.html`
 - 常去地点 `address.html`
 
-<p align="center"><img src='http://qicloud.jswei.cn/images/git/crawle_weibo/nm.jpg' /></p>
-<p align="center"><img src='http://qicloud.jswei.cn/images/git/crawle_weibo/pkq.jpg' /></p>
-<p align="center"><img src='http://qicloud.jswei.cn/images/git/crawle_weibo/qb.jpg' /></p>
+<p align="center"><img src='http://qicloud.jswei.cn/images/git/crawle_weibo/name.jpg' /></p>
+<p align="center"><img src='http://qicloud.jswei.cn/images/git/crawle_weibo/pikaqiu.jpg' /></p>
+<p align="center"><img src='http://qicloud.jswei.cn/images/git/crawle_weibo/qiaoba.jpg' /></p>
 
 ## wordcloud的安装
 - 到[http://www.lfd.uci.edu/~gohlke/pythonlibs/#wordcloud](http://www.lfd.uci.edu/~gohlke/pythonlibs/#wordcloud)下载wordcloud模块所需要的whl文件，根据自己版本下载
