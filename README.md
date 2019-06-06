@@ -23,6 +23,7 @@ config = {
 - 执行`weibo.py`爬取`原创微博`，并下载图片
 - 执行`analysis.py`解析微博内容，并生成图表
 - 执行`main.py`生成词云图
+- 执行`help.py`爬取个人被赞信息，并生成词云图(19-06-06新增)
 
 或者
 ```bash
@@ -94,3 +95,10 @@ pip3 install pyecharts==0.5.11
 - [https://www.crummy.com/software/BeautifulSoup/bs4/doc.zh/](https://www.crummy.com/software/BeautifulSoup/bs4/doc.zh/)
 - [https://www.cnblogs.com/tina-python/p/5508402.html](https://www.cnblogs.com/tina-python/p/5508402.html) <br />
 还有很多，这里就不一一列举出来了
+
+## history
+### 2019-06-06
+#### 爬取个人被赞信息
+**仅能爬到当前cookie账号`被人点赞`记录**<br />
+- `./result/my_help`: 赞你的用户
+- `./result//my_help.jpg`: 生成的词云图

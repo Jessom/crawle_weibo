@@ -20,7 +20,7 @@ address = ""
 # 图片地址
 urllist_set = set()
 # 爬取完当前页，休眠时间
-sleep_time = 40
+sleep_time = 20
 
 try:
 	data_path = os.getcwd() + "/result/%d/"%user_id
@@ -40,7 +40,7 @@ def get_pages():
 	return (int)(body.xpath('//input[@name="mp"]')[0].attrib['value'])
 
 # 获取每页的数据
-def get_page(page=1):
+def get_page(pages, page=1):
 	# 在 python ，如果在 def 中直接修改全局变量的值，会变成局部变量
 	# 这里如果不使用 global 重新声明 result ，会报如下错误
 	# local variable 'result' referenced before assignment
@@ -68,10 +68,12 @@ def get_page(page=1):
 			else:
 				text = each.xpath("string(.)")
 				result = result + text + "\n"
-		print("第 %d 页读取成功"%page)
+		print("第 %d 页读取成功，解析图片地址"%page)
 		analysis_img(lxml)
-		print("图片读取完成，休息 %d 秒"%sleep_time)
-		time.sleep(sleep_time)
+		print("图片读取完成")
+		if pages != page:
+			print("休息 %d 秒"%sleep_time)
+			time.sleep(sleep_time)
 	except Exception as e:
 		print("第%d页读取失败，原因是："%page, e)
 
@@ -129,6 +131,6 @@ if __name__ == '__main__':
 	pages = get_pages()
 	print("数据读取成功，共计 %d 页"%pages)
 	for page in range(1, pages+1):
-		get_page(page)
+		get_page(pages, page)
 	save_result()
 	download_img()

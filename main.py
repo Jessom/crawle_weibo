@@ -45,7 +45,7 @@ image_colors = ImageColorGenerator(color_mask)
 
 # 重新着色
 plt.imshow(wordcloud.recolor(color_func=image_colors), interpolation="bilinear")
-wordcloud.to_file(path.join(d, "result/%d/%d.jpg"%(user_id, user_id)))
+# wordcloud.to_file(path.join(d, "result/%d/%d.jpg"%(user_id, user_id)))
 plt.axis('off')
 plt.figure()
 # plt.imshow(color_mask, cmap=plt.cm.gray, interpolation="bilinear")
