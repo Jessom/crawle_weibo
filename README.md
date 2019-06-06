@@ -27,6 +27,8 @@ config = {
 
 或者
 ```bash
+# start.sh中并没有添加 help.py 的执行命令
+
 bash start.sh
 
 # ./start.sh
@@ -98,7 +100,6 @@ pip3 install pyecharts==0.5.11
 
 ## history
 ### 2019-06-06
-#### 爬取个人被赞信息
-**仅能爬到当前cookie账号`被人点赞`记录**<br />
+#### 爬取个人被赞信息(仅能爬到当前cookie账号`被人点赞`记录)
 - `./result/my_help`: 赞你的用户
 - `./result//my_help.jpg`: 生成的词云图
