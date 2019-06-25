@@ -2,9 +2,13 @@
 微博爬虫，爬取微博个人账号的原创微博内容 <br />
 纯属娱乐项目
 
-## 环境
-windows10 + python3.6.3(18-12-03) <br />
-MacOS 10.14.4 + python3.7.3(19-06-04)
+## 18-12-03
+![windows](https://img.shields.io/badge/Windows-10-blue.svg)
+![python](https://img.shields.io/badge/Python-3.6.3-yellow.svg)
+
+## 19-06-04
+![macos](https://img.shields.io/badge/MacOS-10.14.4-green.svg)
+![python](https://img.shields.io/badge/Python-3.7.3-yellow.svg)
 
 ## 使用
 在项目根目录添加`config.py`文件
@@ -96,7 +100,6 @@ pip3 install pyecharts==0.5.11
 - [https://github.com/dingmyu/weibo_analysis.git](https://github.com/dingmyu/weibo_analysis.git)
 - [https://www.crummy.com/software/BeautifulSoup/bs4/doc.zh/](https://www.crummy.com/software/BeautifulSoup/bs4/doc.zh/)
 - [https://www.cnblogs.com/tina-python/p/5508402.html](https://www.cnblogs.com/tina-python/p/5508402.html) <br />
-还有很多，这里就不一一列举出来了
 
 ## history
 ### 2019-06-06

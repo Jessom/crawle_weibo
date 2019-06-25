@@ -1,33 +1,11 @@
 # -*- coding: utf-8 -*-
-from pyecharts import Geo
-import config as conf
+import requests
+from lxml import etree
 
-user_id = conf.config["userId"]
-city = {}
-
-f = open("result/%d/%d_address"%(user_id, user_id), "rb")
-while True:
-    line = f.readline().strip().decode('utf-8')
-    item = line.replace(" ", "")
-    if line:
-        ii = item[0:item.find("·")]
-        city[ii] = city.get(ii, 0) + 1
-    else:
-        break
-
-data = []
-
-for item in city:
-    print(item)
-    i = (item, city[item])
-    data.append(i)
-
-
-geo = Geo("全国主要城市空气质量", "data from pm2.5", title_color="#fff",
-          title_pos="center", width=1000,
-          height=600, background_color='#404a59')
-attr, value = geo.cast(data)
-geo.add("", attr, value, visual_range=[0, 200], maptype='china',visual_text_color="#fff",
-        symbol_size=10, is_visualmap=True)
-geo.render("全国主要城市空气质量.html")#生成html文件
-# geo#直接在notebook中显示
+if __name__ == '__main__':
+    lxml = requests.get("https://weibo.com/p/aj/album/loading?ajwvr=6&type=like&owner_uid=3583824010&viewer_uid=5337887050&page=2&page_id=1005053583824010&ajax_call=1&__rnd=1560915553987", cookies = {
+        "Cookie": "ALF=1563504539; SCF=AvFcHra0tEMGlbvZdXLvJ2Wn4NQdR305ku3AtzKgo5OWUuRTOVKfkvHy80vG9QXWsOVpIaACVemnZ3xOfuGf4pI.; SUB=_2A25wDdKBDeRhGeNN6FUZ-CnMzjyIHXVT8f7JrDV6PUJbktAKLUHWkW1NSbRi0iIETWzk0wr_nyg91pMCdKSSCnzY; SUBP=0033WrSXqPxfM725Ws9jqgMF55529P9D9WW7gDDG6IBdJJuSk_Mrf-AV5JpX5K-hUgL.Fo-0e0MR1hM7SK52dJLoI7yNqPxyMcLkd5tt; SUHB=0vJYNju_fK5Gec; SSOLoginState=1560912594; MLOGIN=1; _T_WM=37451492514; WEIBOCN_FROM=1110006030; M_WEIBOCN_PARAMS=luicode%3D20000174%26uicode%3D20000174"
+    }).content
+    # body = etree.HTML(lxml)
+    data = eval(lxml)
+    print(data['data'])
