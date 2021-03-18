@@ -43,7 +43,7 @@ odfpy==1.3.6
 openpyxl==2.5.3
 pandas==0.23.0
 parsel==1.5.1
-pillow==5.1.0
+pillow==8.1.1
 ply==3.11
 pyasn1==0.4.4
 pyasn1-modules==0.2.2
