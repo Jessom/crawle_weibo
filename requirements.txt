@@ -27,7 +27,7 @@ itchat==1.3.10
 javascripthon==0.10
 jdcal==1.4
 jieba==0.39
-Jinja2==2.10
+Jinja2==2.11.3
 js2xml==0.3.1
 jupyter-echarts-pypkg==0.1.2
 kiwisolver==1.0.1
