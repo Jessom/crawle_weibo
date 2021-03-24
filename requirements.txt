@@ -67,7 +67,7 @@ PyYAML==3.12
 queuelib==1.5.0
 records==0.5.2
 requests==2.18.4
-rsa==4.0
+rsa==4.1
 service-identity==17.0.0
 six==1.11.0
 slimit==0.8.1
