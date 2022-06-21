@@ -38,7 +38,7 @@ macropy3==1.1.0b2
 MarkupSafe==1.1.0
 matplotlib==3.0.2
 mccabe==0.6.1
-numpy==1.14.4
+numpy==1.22.0
 odfpy==1.3.6
 openpyxl==2.5.3
 pandas==0.23.0
